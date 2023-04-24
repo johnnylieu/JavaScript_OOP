@@ -51,7 +51,6 @@ function StopWatch() {
         stopClicked = 0;
     }
 
-    // getter
     this.duration = function() {
         return duration;
     }
