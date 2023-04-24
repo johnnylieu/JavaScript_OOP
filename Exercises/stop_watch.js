@@ -42,7 +42,8 @@ function StopWatch() {
     this.reset = function() {
         this.stop = clearInterval(timerId);
         duration = 0;
-        stopped = false;
+        stopped = true;
+        start = false;
     }
 
     // getter
