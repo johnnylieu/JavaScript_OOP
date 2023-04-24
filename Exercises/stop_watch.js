@@ -2,9 +2,8 @@
 function StopWatch() {
     // private properties
     let duration = 0;
-    let stopped = false;
-    let startClicked = 0;
-    let stopClicked = 0;
+    let stopped = true;
+    let start = false;
 
     // private methods
     function increment() {
@@ -14,32 +13,29 @@ function StopWatch() {
 
     // implementation properties
     this.start = function() {
-        startClicked++;
-        stopClicked = false;
-        stopped = false;
-        
-        if (startClicked > 1) {
+        if (start) {
             throw new Error (`already started.`)
         }
-        if (!stopped) {
+
+        start = true;
+        stopped = false;
+
+        if (start) {
             timerId = setInterval(increment, 1000);
         }
     }
 
     this.stop = function() {
-        stopClicked++;
-        startClicked = false;
-        stopped = true;
-
-        if (stopClicked > 1) {
+        if (stopped) {
             throw new Error(`Already stopped.`);
-            return;
         }
+
+        stopped = true;
+        start = false;
 
         if (stopped) {
             this.stop = clearInterval(timerId);
             stopped = true;
-            return;
         }
     }
 
@@ -47,8 +43,6 @@ function StopWatch() {
         this.stop = clearInterval(timerId);
         duration = 0;
         stopped = false;
-        startClicked = 0;
-        stopClicked = 0;
     }
 
     // getter
@@ -60,3 +54,4 @@ function StopWatch() {
 }
 
 sw = new StopWatch();
+sw.start();
