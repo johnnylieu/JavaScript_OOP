@@ -51,8 +51,12 @@ function StopWatch() {
         stopClicked = 0;
     }
 
-    this.duration = duration;
+    // getter
+    Object.defineProperty(this, 'duration', {
+        get: function() {
+            return duration;
+        }
+    })
 }
 
-// sw = new StopWatch();
-// sw.start();
+sw = new StopWatch();
