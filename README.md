@@ -4,6 +4,6 @@
 
 class assignment on Abstraction: https://youtu.be/k5QfDAfmsHI
 
-## Abstraction
+## Inheritance
 
 class assignment on Inheritance: https://youtu.be/mxmb2G2gcSA
