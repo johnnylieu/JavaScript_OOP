@@ -31,6 +31,6 @@ function HtmlSelectElement(items = []) {
 }
 
 // setting HtmlSelectElement's prototype to HtmlElement
-HtmlSelectElement.prototype = Object.create(HtmlElement.prototype);
+HtmlSelectElement.prototype = new HtmlElement();
 
 const s = new HtmlSelectElement();
